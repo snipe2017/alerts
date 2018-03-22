@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div class="breadcrumbs" style="margin-bottom: 0px;">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Ask Question</h1>
+            </div>
+            <div class="col-md-12">
+                <div class="crumbs">
+                    <a href="#">Home</a>
+                    <span class="crumbs-span">/</span>
+                    <span class="current">Ask Question</span>
+                </div>
+            </div>
+        </div>
+        <!-- End row -->
+    </section>
+    <!-- End container -->
+</div>
+<!-- End breadcrumbs -->
+            
+<div *ngIf="successMessage" class="alert alert-success"> Successful
+  <br>
+  <a [routerLink]="['/home']">{{successMessage}}</a>
+</div>
+<div class="container">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+  </div>
+</div>
+    <div class="container-contact100" style="margin-top: 0px;">
+        <div class="wrap-contact100">
+            
+
+            <div class="contact100-form-title" style="background-image: url(assets/ask/images/bg-02.jpg);">
+                <span>Ask Question</span>
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="ask()" class="contact100-form validate-form" novalidate>    
+              
+                <div class="wrap-input100 validate-input" [ngClass]="displayFieldCss('username')">
+                            <input type="text" name="" type="" name="username" placeholder="Username" id="question" class="input100" required maxlength="32" formControlName="username">
+                            <span class="focus-input100"></span>
+                    <label class="label-input100 rs1" for="message">
+                        <span class="lnr lnr-user"></span>
+                    </label>
+            <app-field-error [displayError]="isFieldValid('username')" errorMsg="Please inform your Name"></app-field-error>
+            <br>
+            <div *ngIf="form.get('username').hasError('maxlength')">
+             Name length is 20 characters!
+            </div>
+            <div *ngIf="form.get('username').hasError('pattern')">
+              Invalid  Name!
+            </div>
+      </div>
+
+                <div class="wrap-input100 validate-input" [ngClass]="displayFieldCss('tag')">
+                    <select name='tag' class='dropdown-toggle' class="input100" tabindex="11" formControlName="tag" required="" placeholder="Tags">
+                     <option class="level-0" >html</option>
+                <option class="level-0" >css</option>
+                <option class="level-0" >java</option>
+                <option class="level-0" >Hadoop</option>
+                <option class="level-0" >python</option>
+                <option class="level-0" >angular</option>
+                <option class="level-0" >javascript</option>
+                <option class="level-0" >big data</option>
+                <option class="level-0" >jquery</option>
+                <option class="level-0" >hibernete</option>
+                <option class="level-0" >other</option>   
+                    </select>
+                    <span class="focus-input100"></span>
+                    <label class="label-input100">
+                    Tag:
+
+                    </label>
+                    <app-field-error [displayError]="isFieldValid('tag')" errorMsg="Please select your tag"></app-field-error>
+            <br>
+            <div *ngIf="form.get('tag').hasError('maxlength')">
+              tag length is 20 characters!
+            </div>
+            <div *ngIf="form.get('tag').hasError('pattern')">
+              Invalid tag Name!
+            </div>
+
+
+                </div>
+
+
+                
+                <div class="wrap-input100 validate-input" [ngClass]="displayFieldCss('question')">
+                            <textarea type="" name="question" placeholder="Your question" id="question" class="input100" required maxlength="32" formControlName="question"></textarea>
+                            <span class="focus-input100"></span>
+                    <label class="label-input100 rs1" for="message">
+                        <span class="lnr lnr-bubble"></span>
+                    </label>
+            <app-field-error [displayError]="isFieldValid('question')" errorMsg="Please enter question"></app-field-error>
+            <br>
+            <div *ngIf="form.get('question').hasError('maxlength')">
+            question length is 20 characters!
+            </div>
+            <div *ngIf="form.get('question').hasError('pattern')">
+              question First Name!
+            </div>
+
+      </div>
+             <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn" click="ask()">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <app-footer></app-footer>

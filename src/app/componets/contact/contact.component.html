@@ -1,0 +1,186 @@
+<div class="breadcrumbs" style="margin-bottom: 0px;">
+		<section class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Contact Us</h1>
+				</div>
+				<div class="col-md-12">
+					<div class="crumbs">
+						<a [routerLink]="['/home']">Home</a>
+						<span class="crumbs-span">/</span>
+						<a href="#"></a>
+						<span class="crumbs-span"></span>
+						<span class="current">Contact Us</span>
+					</div>
+				</div>
+			</div><!-- End row -->
+		</section><!-- End container -->
+	</div><!-- End breadcrumbs -->
+	
+	
+		<div class="row">
+			<div class="contact-us">
+				<div class="col-md-12">	
+					<div class="page-content">
+						<iframe height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.co.in/maps?q=snipe&amp;hl=en&amp;sll=12.9813333,77.5533795&amp;t=m&amp;z=6&amp;output=embed" style="width: 100%;"></iframe>
+					</div><!-- End page-content -->                                                                          
+				</div>
+				<div class="col-md-7">
+					<div *ngIf="successMessage" class="alert alert-success"> Successful
+  <br>
+  <a [routerLink]="['/home']">{{successMessage}}</a>
+</div>
+<div class="container">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+  </div>
+</div>
+    <div class="container-contact100" style="margin-bottom: 0px;">
+        <div class="wrap-contact100">
+            
+
+            <div class="contact100-form-title" style="background-image: url(assets/ask/images/bg-02.jpg);">
+                <span>Contact Us</span>
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="contact()" class="contact100-form validate-form">    
+
+                <div class="wrap-input100 validate-input">
+                            <input type="text" name="" type="" name="name" placeholder="name" id="name" class="input100" required maxlength="32" formControlName="name">
+                            <span class="focus-input100"></span>
+                    <label class="label-input100 rs1" for="message">
+                        <span class="lnr lnr-user"></span>
+                    </label>
+            <div *ngIf="form.get('name').touched && form.get('name').invalid" class="alert alert-danger">
+              <div *ngIf="form.get('name').hasError('required')">
+                name is Required
+              </div>
+          </div>
+      </div>
+
+      <div class="wrap-input100 validate-input">
+                            <input type="text" name="" type="" name="emailId" placeholder="E-mail" id="emailId" class="input100" required maxlength="32" formControlName="emailId">
+                            <span class="focus-input100"></span>
+                    <label class="label-input100 rs1" for="message">
+                        <span class="lnr lnr-user"></span>
+                    </label>
+            <div *ngIf="form.get('emailId').touched && form.get('emailId').invalid" class="alert alert-danger">
+              <div *ngIf="form.get('emailId').hasError('required')">
+                emailId is Required
+              </div>
+          </div>
+      </div>
+
+              
+              
+                <div class="wrap-input100 validate-input">
+                            <textarea type="" name="message" placeholder="type here" id="message" class="input100" required maxlength="32" formControlName="message"></textarea>
+                            <span class="focus-input100"></span>
+                    <label class="label-input100 rs1" for="message">
+                        <span class="lnr lnr-bubble"></span>
+                    </label>
+            <div *ngIf="form.get('message').touched && form.get('message').invalid" class="alert alert-danger">
+              <div *ngIf="form.get('message').hasError('required')">
+                message is Required
+              </div>
+          </div>
+      </div>
+             <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn">
+                        Send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+				</div><!-- End col-md-6 -->
+				<div class="col-md-5">
+					<div class="page-content">
+						<h2>Snipe community</h2>
+						<p style="text-align: justify;">In this fast changing times what you require are relationships and personnel who can handle the relationships and take on the spot decisions, therefore IT Solutions management believes in empowering all executives in the company to take decisions independently.We value our customers and their time. Our emphasis is to strike a partnership with the customer where the customer takes care of his core business and we take care of his IT infrastructure.</p>
+						<div class="widget widget_contact">
+							<ul>
+								<li><i class="icon-map-marker"></i>Address :<p>Snipe IT Solutions <br>
+									#123, 70th CROSS, 
+									<br>2nd Floor 5th Block , <br>Rajaji Nagara Bangalore - 560010
+								</p></li>
+								
+								<li><i class="icon-phone"></i>Phone number :<p>Tel: +91 080-23100098</p></li>
+								<li><i class="icon-envelope-alt"></i>E-mail :<p>Email: hr@snipe.co.in.</p></li>
+								<li>
+									<i class="icon-share"></i>Social links :
+									<p>
+										<a href="#" original-title="Facebook" class="tooltip-n">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#3b5997" span_hover="#2f3239">
+													<i i_color="#FFF" class="social_icon-facebook"></i>
+												</span>
+											</span>
+										</a>
+										<a href="#" original-title="Twitter" class="tooltip-n">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#00baf0" span_hover="#2f3239">
+													<i i_color="#FFF" class="social_icon-twitter"></i>
+												</span>
+											</span>
+										</a>
+										<a original-title="Youtube" class="tooltip-n" href="#">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#cc291f" span_hover="#2f3239">
+													<i i_color="#FFF" class="social_icon-youtube"></i>
+												</span>
+											</span>
+										</a>
+										<a href="#" original-title="Linkedin" class="tooltip-n">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#006599" span_hover="#2f3239">
+													<a href="https://www.linkedin.com/in/snipe-tech-pvt-ltd-19540014b/"><i i_color="#FFF" class="social_icon-linkedin"></i></a>
+												</span>
+											</span>
+										</a>
+										<a href="#" original-title="Google plus" class="tooltip-n">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#ca2c24" span_hover="#2f3239">
+													<i i_color="#FFF" class="social_icon-gplus"></i>
+												</span>
+											</span>
+										</a>
+										<a original-title="RSS" class="tooltip-n" href="#">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#F18425" span_hover="#2f3239">
+													<i i_color="#FFF" class="icon-rss"></i>
+												</span>
+											</span>
+										</a>
+										<a original-title="Instagram" class="tooltip-n" href="#">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#306096" span_hover="#2f3239">
+													<i i_color="#FFF" class="social_icon-instagram"></i>
+												</span>
+											</span>
+										</a>
+										<a original-title="Dribbble" class="tooltip-n" href="#">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#e64281" span_hover="#2f3239">
+													<i i_color="#FFF" class="social_icon-dribbble"></i>
+												</span>
+											</span>
+										</a>
+										<a original-title="Pinterest" class="tooltip-n" href="#">
+											<span class="icon_i">
+												<span class="icon_square" icon_size="25" span_bg="#c7151a" span_hover="#2f3239">
+													<i i_color="#FFF" class="icon-pinterest"></i>
+												</span>
+											</span>
+										</a>
+									<br><br><br><br><br>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div><!-- End page-content -->
+				</div><!-- End col-md-6 -->
+			</div><!-- End contact-us -->
+		</div><!-- End row -->
+	
+	<app-footer></app-footer>

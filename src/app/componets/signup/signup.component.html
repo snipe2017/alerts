@@ -1,0 +1,180 @@
+<div *ngIf="successMessage" class="alert alert-success">Registration Successful
+  <br>
+  <a [routerLink]="['/login']">{{successMessage}}</a>
+</div>
+<div class="container">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+  </div>
+</div>
+<div style=" background-image: url('./assets/images/rethink-target-heart-rate-number-ftr.jpg')">
+  <div class="container">
+    <div class="form-horizontal" role="form">
+      <h2>SignUp</h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form);" novalidate>
+        <div class="form-group" [ngClass]="displayFieldCss('fname')">
+          <label class="col-sm-3 control-label">FirstName</label>
+          <div class="col-sm-9">
+            <input type="text" name="fname" class="form-control" id="firstName" placeholder="First Name" required maxLength="21" formControlName="fname"
+              autofocus>
+            <app-field-error [displayError]="isFieldValid('fname')" errorMsg="Please inform your FirstName"></app-field-error>
+            <br>
+            <div *ngIf="form.get('fname').hasError('maxlength')" class="text-danger">
+              First Name length is 20 characters!
+            </div>
+            <div *ngIf="form.get('fname').hasError('pattern')" class="text-danger">
+              Invalid First Name!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('lname')">
+          <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+          <div class="col-sm-9">
+            <input type="text" name="lname" class="form-control" id="lastName" autofocus placeholder="Last Name" required maxLength="21"
+              formControlName="lname">
+            <app-field-error [displayError]="isFieldValid('lname')" errorMsg=" LastName is Required"></app-field-error>
+            <br>
+            <div *ngIf="form.get('lname').hasError('maxlength')" class="text-danger">
+              Last Name length is 20 characters!
+            </div>
+            <div *ngIf="form.get('lname').hasError('pattern')" class="text-danger">
+              Invalid First Name!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('emailId')">
+          <label for="email" class="col-sm-3 control-label">Email* </label>
+          <div class="col-sm-9">
+            <input type="email" name="emailId" placeholder="Your Email" id="email" class="form-control" required maxlength="32" formControlName="emailId">
+            <app-field-error [displayError]="isFieldValid('emailId')" errorMsg="Email Id is Required"></app-field-error>
+            <div *ngIf="form.get('emailId').hasError('pattern')" class="text-danger">
+              Invalid EmailId!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('cpwd')">
+          <label for="password" class="col-sm-3 control-label">Password*</label>
+          <div class="col-sm-9">
+            <input type="password" id="password" class="form-control" name="cpwd" placeholder="Password" required maxlength="13" formControlName="cpwd">
+            <app-field-error [displayError]="isFieldValid('cpwd')" errorMsg=" Email Id is Required"></app-field-error>
+            <br>
+            <div *ngIf="form.get('cpwd').hasError('maxlength')" class="text-danger">
+              Password length is more than 12 charcters!
+            </div>
+            <div *ngIf="form.get('cpwd').hasError('minlength')" class="text-danger">
+              Password length is less than 8 charcters!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('pwd')">
+          <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
+          <div class="col-sm-9">
+            <input type="password" id="pwd" class="form-control" name="pwd" placeholder="Confirm Password" required validateEqual="cpwd"
+              required maxlength="13" formControlName="pwd">
+            <app-field-error [displayError]="isFieldValid('pwd')" errorMsg="Confirm Password is Required"></app-field-error>
+
+            <br>
+            <div *ngIf="form.get('pwd').hasError('maxlength')" class="text-danger">
+              Confirm Password length is more than 12 charcters!
+            </div>
+            <div *ngIf="form.get('pwd').hasError('minlength')" class="text-danger">
+              Confirm Password length is less than 8 charcters!
+            </div>
+            <div [hidden]="form.get('pwd').valid ||  (form.get('pwd').pristine && !form.submitted)" class="text-danger">
+              Password mismatch
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('gender')">
+          <label class="control-label col-sm-3">Gender</label>
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="maleRadio" value="male" formControlName="gender" checked> Male
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="femaleRadio" value="female" formControlName="gender"> Female
+                </label>
+              </div>
+            </div>
+            <app-field-error [displayError]="isFieldValid('gender')" errorMsg="Gender is Required"></app-field-error>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('mobileNo')">
+          <label for="phoneNumber" class="col-sm-3 control-label">Phone number</label>
+          <div class="col-sm-9">
+            <input type="text" id="phoneNumber" class="form-control" name="mobileNo" placeholder="Enter Phone number" required validateEqual="cpwd"
+              required maxlength="11" formControlName="mobileNo">
+            <app-field-error [displayError]="isFieldValid('mobileNo')" errorMsg=" Mobile number is Required"></app-field-error>
+            <br>
+            <div *ngIf="form.get('mobileNo').hasError('pattern')" class="text-danger">
+              Invalid Mobile Number!
+            </div>
+            <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('minlength')">
+              <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('maxlength')">
+
+                <div *ngIf="form.get('mobileNo').hasError('minlength')" class="text-danger" class="text-danger">
+                  Less than 10 digit!
+                </div>
+                <div *ngIf="form.get('mobileNo').hasError('maxlength')" class="text-danger" class="text-danger">
+                  More than 10 digit!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group" [ngClass]="displayFieldCss('qualification')">
+          <label for="date" class="col-sm-3 control-label">Qualification</label>
+          <div class="col-sm-9">
+            <input type="text" name="qualification" class="form-control" placeholder="Enter Qualification Details" required maxlength="20"
+              formControlName="qualification">
+            <app-field-error [displayError]="isFieldValid('qualification')" errorMsg="qualification Details is Required"></app-field-error>
+            <br>
+          </div>
+        </div> -->
+
+        <div class="form-group"  [ngClass]="displayFieldCss('country')">
+          <label class="col-sm-3 control-label" >Country* </label>
+          <div class="col-sm-9">
+            <select id="country" formControlName="country">
+              <option *ngFor="let c of countries" [ngValue]="c">{{ c }}</option>
+            </select>
+            <app-field-error [displayError]="isFieldValid('country')" errorMsg="Date of Joining is Required"></app-field-error>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('dob')">
+          <label for="date" class="col-sm-3 control-label">Date of Joining</label>
+          <div class="col-sm-9">
+            <input type="date" class="form-control" name="dob" placeholder="Enter DOB" formControlName="dob">
+            <app-field-error [displayError]="isFieldValid('dob')" errorMsg="Date of Joining is Required"></app-field-error>
+            <br>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="displayFieldCss('doj')">
+          <label for="date" class="col-sm-3 control-label">Date of Joining</label>
+          <div class="col-sm-9">
+            <input type="date" class="form-control" name="doj" placeholder="Enter DOB" formControlName="doj">
+            <app-field-error [displayError]="isFieldValid('doj')" errorMsg=" Date of Joining is Required"></app-field-error>
+            <br>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success  btn-block">SIGN UP</button>
+          <button class="btn btn-info  btn-block" (click)="reset()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

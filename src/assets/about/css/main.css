@@ -1,0 +1,78 @@
+.hero-area {
+  background: url(../img/banner-bg.jpg) no-repeat center/contain;
+  background-size: cover;
+}
+
+.hero-overlay-bg {
+  background: -webkit-linear-gradient(left top, #91d1ff, #a387ff);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #91d1ff, #a387ff);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #91d1ff, #a387ff);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #91d1ff, #a387ff);
+  /* Standard syntax */
+  opacity: 0.9;
+}
+
+.about-area {
+  background: #fff;
+}
+
+.about-left img {
+  outline: 10px solid #777;
+  outline-offset: -54px;
+  border: 44px solid transparent;
+  border-width: 15px 10px 85px 85px;
+}
+
+.about-right .lnr {
+  color: #a387ff;
+  font-size: 30px;
+}
+
+.about-right h1 {
+  font-size: 36px;
+  font-weight: 100;
+  color: #a387ff;
+}
+
+.about-right h1 span {
+  font-weight: 600;
+  color: #000;
+}
+
+.about-right p {
+  padding-right: 45px;
+}
+
+@media (max-width: 768px) {
+  .about-right p {
+    padding-right: 0px;
+  }
+}
+
+.about-right .learn-btn {
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.about-right .learn-btn:hover {
+  color: #a387ff;
+}
+
+
+
+.about-generic-area {
+  background: #fff;
+}
+
+.about-generic-area .border-top-generic {
+  padding: 100px 15px;
+  border-top: 1px dotted #eee;
+}
+
+.about-generic-area p {
+  margin-bottom: 20px;
+}
